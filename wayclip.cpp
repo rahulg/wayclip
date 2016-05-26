@@ -45,12 +45,15 @@ int main(int argc, char** argv) {
 	parser.addHelpOption();
 	parser.addVersionOption();
 
+	QCommandLineOption debugOption("debug", "Print messages from Qt");
+	debugOption.setHidden(true);
+	parser.addOption(debugOption);
+
 	parser.addOptions({
 	  {{"i", "in"}, "Read text into the clipboard"},
 	  {{"o", "out"}, "Print text from the clipboard"},
 	  {{"f", "filter"},
 	   "In input mode, pass text through from stdin to stdout"},
-	  {"debug", "Print messages from Qt"},
 	});
 	parser.process(app.arguments());
 
