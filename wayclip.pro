@@ -1,4 +1,10 @@
 TEMPLATE = app
+
 QT += widgets
-SOURCES += wayclip.cpp
+
 CONFIG += c++11
+SOURCES += wayclip.cpp
+
+mac {
+	CONFIG -= app_bundle
+}

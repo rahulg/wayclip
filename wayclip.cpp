@@ -1,21 +1,22 @@
 #include <QApplication>
+#include <QClipboard>
 #include <QCommandLineParser>
 #include <QTextStream>
-#include <QClipboard>
 
-void blackHole(QtMsgType type, const QMessageLogContext &ctx, const QString &msg) {
+void blackHole(QtMsgType type, const QMessageLogContext& ctx,
+               const QString& msg) {
 	(void)type;
 	(void)ctx;
 	(void)msg;
 }
 
 void pasteText() {
-	QClipboard *clipboard = QApplication::clipboard();
+	QClipboard* clipboard = QApplication::clipboard();
 	QTextStream(stdout) << clipboard->text(QClipboard::Clipboard);
 }
 
 void copyText(bool filter) {
-	QClipboard *clipboard = QApplication::clipboard();
+	QClipboard* clipboard = QApplication::clipboard();
 	QString input = QTextStream(stdin).readAll();
 	clipboard->setText(input, QClipboard::Clipboard);
 	if (filter) {
@@ -37,10 +38,11 @@ int main(int argc, char** argv) {
 	parser.addVersionOption();
 
 	parser.addOptions({
-		{{"i", "in"}, "Read text into the clipboard"},
-		{{"o", "out"}, "Print text from the clipboard"},
-		{{"f", "filter"}, "In input mode, pass text through from stdin to stdout"},
-		{"debug", "Print messages from Qt"},
+	  {{"i", "in"}, "Read text into the clipboard"},
+	  {{"o", "out"}, "Print text from the clipboard"},
+	  {{"f", "filter"},
+	   "In input mode, pass text through from stdin to stdout"},
+	  {"debug", "Print messages from Qt"},
 	});
 	parser.process(app.arguments());
 
@@ -67,4 +69,3 @@ int main(int argc, char** argv) {
 
 	return 0;
 }
-
