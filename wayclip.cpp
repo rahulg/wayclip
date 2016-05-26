@@ -46,7 +46,9 @@ int main(int argc, char** argv) {
 	parser.addVersionOption();
 
 	QCommandLineOption debugOption("debug", "Print messages from Qt");
+#if QT_VERSION >= 0x050600
 	debugOption.setHidden(true);
+#endif
 	parser.addOption(debugOption);
 
 	parser.addOptions({
