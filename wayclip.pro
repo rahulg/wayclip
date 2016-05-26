@@ -7,4 +7,6 @@ SOURCES += wayclip.cpp
 
 mac {
 	CONFIG -= app_bundle
+	OBJECTIVE_SOURCES += wayclip_mac.mm
+	LIBS += -framework Cocoa
 }

@@ -3,6 +3,10 @@
 #include <QCommandLineParser>
 #include <QTextStream>
 
+#ifdef Q_OS_MAC
+#include "wayclip_mac.h"
+#endif
+
 void blackHole(QtMsgType type, const QMessageLogContext& ctx,
                const QString& msg) {
 	(void)type;
@@ -25,6 +29,10 @@ void copyText(bool filter) {
 }
 
 int main(int argc, char** argv) {
+
+#ifdef Q_OS_MAC
+	returnFocus();
+#endif
 
 	qInstallMessageHandler(blackHole);
 
