@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
 
 	QApplication app(argc, argv);
 	QApplication::setApplicationName("wayclip");
-	QApplication::setApplicationVersion("1.0");
+	QApplication::setApplicationVersion(VERSION);
 
 	QCommandLineParser parser;
 	parser.setApplicationDescription("Copy or paste text from the clipboard");

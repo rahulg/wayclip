@@ -2,6 +2,8 @@ TEMPLATE = app
 
 QT += widgets
 
+DEFINES += VERSION=\\\"$$system(git describe --tags --always --abbrev=7 --dirty)\\\"
+
 CONFIG += c++11
 SOURCES += src/wayclip.cpp
 
