@@ -6,4 +6,4 @@
 
 - `qmake`
 - `make`
-- `install -Zs wayclip /usr/local/bin/`
+- `make install`
