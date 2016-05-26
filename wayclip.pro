@@ -3,13 +3,14 @@ TEMPLATE = app
 QT += widgets
 
 CONFIG += c++11
-SOURCES += wayclip.cpp
+SOURCES += src/wayclip.cpp
 
 target.path = /usr/local/bin/
 INSTALLS += target
+QMAKE_CLEAN += ${TARGET}
 
 mac {
 	CONFIG -= app_bundle
-	OBJECTIVE_SOURCES += wayclip_mac.mm
+	OBJECTIVE_SOURCES += src/wayclip_mac.mm
 	LIBS += -framework Cocoa
 }
